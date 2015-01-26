@@ -6,10 +6,10 @@
         id        = "com.phonegap.statsticks"
         version   = "1.0.0">
 
-    <name>Hello World</name>
+    <name>StatSticks</name>
 
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Possibly the world first so best and worst Field Hockey based statistics App.
     </description>
 
     <author href="http://tom-fyles.com">
