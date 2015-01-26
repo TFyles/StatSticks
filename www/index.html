@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.sidr.light.css">
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
+
+        <title>StatSticks</title>
+    </head>
+    <body>
+    <header>
+        <a id="simple-menu" href="#sidr"> &#9776; </a>
+    <div id="sidr">
+        <ul>
+            <li>
+                <a href="#page1" title="Tom Fyles Web Design" class="active"> Home </a>
+            </li>
+            <li>
+                <a href="#page2" title="About Tom Fyles"> About </a>
+            </li>
+            <li>
+                <a href="#page3" title="Portfolio of work">Portfolio</a>
+            </li>
+            <li>  
+                <a href="#page4" title="My Blog">Blog</a>
+            </li>
+            <li>  
+                <a href="#page5" title="My Cv">CV</a>
+            </li>   
+        </ul>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('#simple-menu').sidr();
+      });
+    </script>
+    </header>
+        <p>Bluerg</p>
+
+    </body>
+</html>
