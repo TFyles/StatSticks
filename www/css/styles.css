@@ -19,3 +19,12 @@ a{
 	font-size: 20px;
 	color: #FDFDF0;
 }
+#stats{
+	display: none;
+}
+#graph{
+	display: none;
+}
+#about{
+	display: none;
+}
