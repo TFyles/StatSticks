@@ -3,7 +3,9 @@ header{
 	height: 65px;
 }
 #simple-menu{
-	padding-top: 60%;
+	position: absolute;
+	top: 20px;
+	left: 10px;
 	font-size: 30px;
 	color: #FDFDF0;
 }
