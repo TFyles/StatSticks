@@ -2,6 +2,9 @@ header{
 	background-color: #69D2E7;
 	height: 65px;
 }
+a{
+	text-decoration: none;
+}
 #simple-menu{
 	position: absolute;
 	top: 20px;
