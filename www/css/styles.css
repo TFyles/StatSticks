@@ -7,8 +7,14 @@ a{
 }
 #simple-menu{
 	position: absolute;
-	top: 10px;
+	top: 5px;
 	left: 10px;
 	font-size: 46px;
 	color: #FDFDF0;
+}
+#title{
+	position: absolute;
+	top: 10px;
+	left: 40%;
+	font-size: 30px;
 }
