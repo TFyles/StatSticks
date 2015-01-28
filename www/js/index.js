@@ -39,9 +39,11 @@ $( '#aboutNav' ).click(function() {
 });
 $( '#logInButton' ).click(function() {
   $('#logIn').css('display','inline');
+  $('#home').css('display','none');
 });
 $( '#closeLogIn' ).click(function() {
   $('#logIn').css('display','none');
+  $('#home').css('display','inline');
 });
 $( '#signUpButton' ).click(function() {
   $('#signUp').css('display','inline');
