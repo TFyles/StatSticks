@@ -43,17 +43,30 @@
     </script>
     </header>
         <div id="home">
-             <button> Log In  </button>
-             <button> Sign Up </button>
+             <button id="logInButton"> Log In  </button>
+             <button id="signUpButton"> Sign Up </button>
              <form id="logIn">
-                 <label for="name">Username:</label>
-                 <input type="text" name="name" id="name" value=""  />
-                 <label for="pass">Password:</label>
-                 <input type="password" name="pass" id="pass" value=""  />
+                 <label for="loginName">Username:</label>
+                 <input type="text" name="loginName" id="loginName" value=""  />
+                 <label for="loginPass">Password:</label>
+                 <input type="password" name="loginPass" id="loginPass" value=""  />
+                 <input type="submit">
+                 <input type="reset">
+                 <button id="closeLogIn">Close</button>
              </form>
         </div>
         <div id="signUp">
-            
+            <form id="signUpForm">
+                 <label for="signUpName">Username:</label>
+                 <input type="text" name="signUpName" id="signUpName" value=""  />
+                 <label for="signUpPass">Password:</label>
+                 <input type="password" name="signUpPass" id="signUpPass" value=""  />
+                 <label for="signUpPassRepeat"> Repeat Password:</label>
+                 <input type="password" name="signUpPassRepeat" id="signUpPassRepeat" value=""  />
+                 <input type="submit">
+                 <input type="reset">
+                 <button id="closeSignUp">Close</button>
+             </form>
         </div>
         <div id="profile">
             <p>Pow</p>
