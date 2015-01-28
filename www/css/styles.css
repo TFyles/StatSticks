@@ -38,3 +38,19 @@ a{
 #signUp{
 	display: none;
 }
+#homeButtons{
+	position: absolute;
+	top: 450px;
+	left: 20%;
+}
+.snazzyButton {
+  -webkit-border-radius: 23;
+  -moz-border-radius: 23;
+  border-radius: 23px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 18px;
+  background: #69D2E7;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
