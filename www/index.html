@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.sidr.light.css">
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
+
+        <title>StatSticks</title>
+    </head>
+    <body>
+    <header>
+        <a id="simple-menu" href="#sidr"> &#9776; </a>
+    <div id="sidr">
+        <ul>
+            <li>
+                <a href="#profile" title="" id="profileNav"> Profile </a>
+            </li>
+            <li>
+                <a href="#stats" title="" id="statNav">Stats</a>
+            </li>
+            <li>  
+                <a href="#graph" title="" id="graphNav">Graph</a>
+            </li>
+            <li>  
+                <a href="#about" title="" id="aboutNav">About</a>
+            </li>   
+        </ul>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('#simple-menu').sidr();
+      });
+    </script>
+    </header>
+        <div id="home" data-role="page">
+            <div id="homeButtons">
+                 <button id="logInButton" class="snazzyButton"> Log In  </button>
+                 <button id="signUpButton" class="snazzyButton"> Sign Up </button>
+             </div>
+             <form id="logInForm">
+                 <label for="loginName">Username:</label>
+                 <input type="text" name="loginName" id="loginName" value=""  />
+                 <label for="loginPass">Password:</label>
+                 <input type="password" name="loginPass" id="loginPass" value=""  />
+                 <input type="submit">
+                 <input type="reset">
+                 <button id="closeLogIn">Close</button>
+             </form>
+            <form id="signUpForm">
+                 <label for="signUpName">Username:</label>
+                 <input type="text" name="signUpName" id="signUpName" value=""  />
+                 <label for="signUpPass">Password:</label>
+                 <input type="password" name="signUpPass" id="signUpPass" value=""  />
+                 <label for="signUpPassRepeat"> Repeat Password:</label>
+                 <input type="password" name="signUpPassRepeat" id="signUpPassRepeat" value=""  />
+                 <input type="submit">
+                 <input type="reset">
+                 <button id="closeSignUp">Close</button>
+             </form>
+        </div>
+        <div id="profile" data-role="page">
+            <p>Pow</p>
+        </div>
+        <div id="stats" data-role="page">
+            <p>sttt</p>
+        </div>
+        <div id="graph" data-role="page">
+            <p>Grrr</p>
+        </div>
+        <div id="about" data-role="page">
+            <p>abo</p>
+        </div>
+
+    </body>
+</html>
