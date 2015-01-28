@@ -39,14 +39,18 @@ $( '#aboutNav' ).click(function() {
 });
 $( '#logInButton' ).click(function() {
   $('#logInForm').css('display','inline');
+  $('#homeButtons').css('display','none');
 });
 $( '#closeLogIn' ).click(function() {
   $('#logInForm').css('display','none');
+  $('#homeButtons').css('display','inline');
 });
 $( '#signUpButton' ).click(function() {
   $('#signUpForm').css('display','inline');
+  $('#homeButtons').css('display','none');
 });
 $( '#closeSignUp' ).click(function() {
   $('#signUpForm').css('display','none');
+  $('#homeButtons').css('display','inline');
 });
 })

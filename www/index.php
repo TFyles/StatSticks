@@ -1,3 +1,15 @@
+<?php
+include_once 'includes/register.inc.php';
+include_once 'includes/functions.php';
+
+sec_session_start();
+ 
+if (login_check($mysqli) == true) {
+    $logged = 'in';
+} else {
+    $logged = 'out';
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +22,6 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.sidr.light.css">
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <!--
-        <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script> -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
@@ -48,23 +58,34 @@
                  <button id="logInButton" class="snazzyButton"> Log In  </button>
                  <button id="signUpButton" class="snazzyButton"> Sign Up </button>
              </div>
-             <form id="logInForm">
-                 <label for="loginName">Username:</label>
-                 <input type="text" name="loginName" id="loginName" value=""  />
+             <form id="logInForm" action="includes/process_login.php" method="post" name="login_form">
+                 <label for="email">Email:</label>
+                 <input type="text" name="email" id="email" value=""  />
                  <label for="loginPass">Password:</label>
                  <input type="password" name="loginPass" id="loginPass" value=""  />
-                 <input type="submit">
+                 <input type="submit" onclick="formhash(this.form, this.form.password);">
                  <input type="reset">
                  <button id="closeLogIn">Close</button>
              </form>
-            <form id="signUpForm">
+             <?php
+                    if (login_check($mysqli) == true) {
+                        echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
+                        echo '<p>Do you want to change user? <a href="includes/logout.php">Log out</a>.</p>';
+                    } else {
+                        echo '<p>Currently logged ' . $logged . '.</p>';
+                        echo "<p>If you don't have a login, please <a href='register.php'>register</a></p>";
+                    }
+             ?>
+            <form id="signUpForm" action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" method="post">
                  <label for="signUpName">Username:</label>
                  <input type="text" name="signUpName" id="signUpName" value=""  />
-                 <label for="signUpPass">Password:</label>
-                 <input type="password" name="signUpPass" id="signUpPass" value=""  />
+                 <label for="Email"> Email:</label>
+                 <input type="text" name="email" id="email" />
+                 <label for="pass">Password:</label>
+                 <input type="password" name="pass" id="pass" value=""  />
                  <label for="signUpPassRepeat"> Repeat Password:</label>
-                 <input type="password" name="signUpPassRepeat" id="signUpPassRepeat" value=""  />
-                 <input type="submit">
+                 <input type="password" name="passRepeat" id="passRepeat" value=""  />
+                 <input type="submit" onclick="return regformhash (this.form, this.form.signUpName, this.form.email, this.form.pass, this.form.passRepeat); ">
                  <input type="reset">
                  <button id="closeSignUp">Close</button>
              </form>
