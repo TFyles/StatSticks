@@ -38,19 +38,15 @@ $( '#aboutNav' ).click(function() {
   $.sidr('close', 'sidr');
 });
 $( '#logInButton' ).click(function() {
-  $('#logIn').css('display','inline');
-  $('#home').css('display','none');
+  $('#logInForm').css('display','inline');
 });
 $( '#closeLogIn' ).click(function() {
-  $('#logIn').css('display','none');
-  $('#home').css('display','inline');
+  $('#logInForm').css('display','none');
 });
 $( '#signUpButton' ).click(function() {
-  $('#signUp').css('display','inline');
-  $('#home').css('display','none');
+  $('#signUpForm').css('display','inline');
 });
 $( '#closeSignUp' ).click(function() {
-  $('#signUp').css('display','none');
-  $('#home').css('display','inline');
+  $('#signUpForm').css('display','none');
 });
 })
