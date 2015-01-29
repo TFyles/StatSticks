@@ -13,6 +13,11 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
+        <link rel="stylesheet" href="css/contour.min.css">
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="js/lodash.js"></script>
+        <script src="js/contour.min.js"></script>
+        <script type="text/javascript" src="js/GraphFunction.js"></script>
 
         <title>StatSticks</title>
     </head>
@@ -75,6 +80,17 @@
         </div>
         <div id="graph" data-role="page">
             <p>Grrr</p>
+            <div class="myFirstChart" style="width:80%; height:300px;"></div>
+
+                 <FORM NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
+                 <INPUT TYPE="number" NAME="num1" VALUE=""><P>
+                 <INPUT TYPE="number" NAME="num2" VALUE=""><P>
+                 <INPUT TYPE="number" NAME="num3" VALUE=""><P>
+                 <INPUT TYPE="number" NAME="num4" VALUE=""><P>
+                 <INPUT TYPE="number" NAME="num5" VALUE=""><P>
+                 <INPUT TYPE="number" NAME="num6" VALUE=""><P>
+                 <INPUT TYPE="button" NAME="button" Value="Click" onClick=" makeGraph(this.form)">
+                 </FORM>
         </div>
         <div id="about" data-role="page">
             <p>abo</p>
