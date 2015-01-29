@@ -1,3 +1,5 @@
+var chart;
+var attempts = 0;
 function makeGraph(form){
                 var numero1 = form.num1.value;
                 var numero2 = form.num2.value;
@@ -18,14 +20,16 @@ function makeGraph(form){
                 .render();
 };
 function randomGraph(){
+        if (attempts == 0) {
                 var numero1 = Math.floor((Math.random() * 100) + 1);
                 var numero2 = Math.floor((Math.random() * 100) + 1);
                 var numero3 = Math.floor((Math.random() * 100) + 1);
                 var numero4 = Math.floor((Math.random() * 100) + 1);
                 var numero5 = Math.floor((Math.random() * 100) + 1);
                 var numero6 = Math.floor((Math.random() * 100) + 1);
-                new Contour({
-                el: '.exampleChart',
+                var data = [numero1, numero2, numero3, numero4, numero5, numero6,];
+                chart = new Contour({
+                el: '#exampleChart',
                 xAxis: { orient: 'bottom' },
                 xAxis: { categories: ['X 1', 'X 2', 'X 3', 'X 4', 'X 5', 'X 6'] },
                 xAxis: { title: 'X Axis' },
@@ -33,6 +37,15 @@ function randomGraph(){
                 chart: { animations : { enable: true } } 
                 })
                 .cartesian()
-                .line([numero1, numero2, numero3, numero4, numero5, numero6,])
+                .line(data)
                 .render();
+                attempts++;
+        } else {
+                console.log("One random at a time");
+        }
+}
+function closeGraph(){
+        $('#exampleChart').css('display','none');
+        $("#exampleChart").empty();
+        attempts = 0;
 }

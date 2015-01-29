@@ -94,9 +94,10 @@
             <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
         </div>
         <div class="page" id="example" data-role="page">
-            <div class="exampleChart" style="width:300px; height:200px;"></div>
+            <div id="exampleChart"></div>
             <button class="snazzyButton" onclick="randomGraph()">Random Chart</button>
-            <button class="snazzyButton" id="closeExample">Close</button>
+            <button class="snazzyButton" onclick="updateRandomGraph">Update</button>
+            <button class="snazzyButton" id="closeExample" onclick="closeGraph()">Close</button>
         </div>
         <div class="page" id="about" data-role="page">
             <p>abo</p>
