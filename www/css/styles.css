@@ -32,6 +32,9 @@ a{
 #about{
 	display: none;
 }
+#example{
+	display: none;
+}
 #logInForm{
 	display: none;
 }

@@ -1,10 +1,7 @@
 $(document).ready(function (){
 $( '#profileNav' ).click(function() {
- 	$('#profile').css('display','inline');
-  $('#stats').css('display','none');
-  $('#graph').css('display','none');
-  $('#about').css('display','none');
-  $('#home').css('display','none');
+  $('.page').css('display','none');
+  $('#profile').css('display','inline');
   $.sidr('close', 'sidr');
 });
 $( '#profileButton' ).click(function() {
@@ -13,28 +10,19 @@ $( '#profileButton' ).click(function() {
   $.sidr('close', 'sidr');
 });
 $( '#statNav' ).click(function() {
-  $('#profile').css('display','none');
+  $('.page').css('display','none');
   $('#stats').css('display','inline');
-  $('#graph').css('display','none');
-  $('#about').css('display','none');
-  $('#home').css('display','none');
   $.sidr('close', 'sidr');
 });
 $( '#graphNav' ).click(function() {
-  $('#profile').css('display','none');
-  $('#stats').css('display','none');
+  $('.page').css('display','none');
   $('#graph').css('display','inline');
-  $('#about').css('display','none');
-  $('#home').css('display','none');
   $.sidr('close', 'sidr');
 
 });
 $( '#aboutNav' ).click(function() {
-  $('#profile').css('display','none');
-  $('#stats').css('display','none');
-  $('#graph').css('display','none');
+  $('.page').css('display','none');
   $('#about').css('display','inline');
-  $('#home').css('display','none');
   $.sidr('close', 'sidr');
 });
 $( '#logInButton' ).click(function() {
@@ -53,4 +41,13 @@ $( '#closeSignUp' ).click(function() {
   $('#signUpForm').css('display','none');
   $('#homeButtons').css('display','inline');
 });
+$( '#exampleButton' ).click(function() {
+  $('#graph').css('display','none');
+  $('#example').css('display','inline');
+});
+$( '#closeExample' ).click(function() {
+  $('#graph').css('display','inline');
+  $('#example').css('display','none');
+});
 })
+

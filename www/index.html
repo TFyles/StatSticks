@@ -46,7 +46,7 @@
       });
     </script>
     </header>
-        <div id="home" data-role="page">
+        <div class="page" id="home" data-role="page">
             <div id="homeButtons">
                  <button id="logInButton" class="snazzyButton"> Log In  </button>
                  <button id="signUpButton" class="snazzyButton"> Sign Up </button>
@@ -72,15 +72,15 @@
                  <button id="closeSignUp">Close</button>
              </form>
         </div>
-        <div id="profile" data-role="page">
+        <div class="page" id="profile" data-role="page">
             <p>Pow</p>
         </div>
-        <div id="stats" data-role="page">
+        <div class="page" id="stats" data-role="page">
             <p>sttt</p>
         </div>
-        <div id="graph" data-role="page">
+        <div class="page" id="graph" data-role="page">
             <p>Grrr</p>
-            <div class="myFirstChart" style="width:80%; height:300px;"></div>
+            <div class="myFirstChart" style="width:300px; height:200px;"></div>
 
                  <FORM NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
                  <INPUT TYPE="number" NAME="num1" VALUE=""><P>
@@ -91,8 +91,14 @@
                  <INPUT TYPE="number" NAME="num6" VALUE=""><P>
                  <INPUT TYPE="button" NAME="button" Value="Click" onClick=" makeGraph(this.form)">
                  </FORM>
+            <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
         </div>
-        <div id="about" data-role="page">
+        <div class="page" id="example" data-role="page">
+            <div class="exampleChart" style="width:300px; height:200px;"></div>
+            <button class="snazzyButton" onclick="randomGraph()">Random Chart</button>
+            <button class="snazzyButton" id="closeExample">Close</button>
+        </div>
+        <div class="page" id="about" data-role="page">
             <p>abo</p>
         </div>
 
