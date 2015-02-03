@@ -52,10 +52,11 @@ $( '#closeExample' ).click(function() {
 
 $('#GraphForm').submit(function(){
     var postData = $(this).serialize();
+    console.log("This Worked");
 $.ajax({
     type: 'POST',
     data: postData,
-    url: 'http://http://fyles.worcestercomputing.com/post.php',
+    url: 'post.php',
     success: function(data){
       console.log(data);
       alert('Your Data was successfully added');
