@@ -17,6 +17,7 @@
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="js/lodash.js"></script>
         <script src="js/contour.min.js"></script>
+        <script type="text/javascript" src="js/stats.js"></script>
         <script type="text/javascript" src="js/GraphFunction.js"></script>
 
         <title>StatSticks</title>
@@ -76,13 +77,25 @@
             <p>Pow</p>
         </div>
         <div class="page" id="stats" data-role="page">
-            <p>sttt</p>
+            <p>Stats</p>
+            <form name="statsAdd" method="get">
+                <label for="games">Games:</label>
+                <input type="number" name="games" id="games" value=""><BR>
+                <label for="goals">Goals:</label>
+                <input type="number" name="goals" id="goals" value=""><BR>
+                <label for="assists"> Assists:</label>
+                <input type="number" name="assists" id="assists" value=""><BR>
+                <label for="minutes">Minutes:</label>
+                <input type="number" name="minutes" id="minutes" value=""><BR>
+                <input type="submit" onclick="getStats(this.form)">
+                <input type="reset">
+            </form>
         </div>
         <div class="page" id="graph" data-role="page">
             <p>Grrr</p>
             <div class="myFirstChart" style="width:300px; height:200px;"></div>
-
-                 <FORM NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
+                 <FORM id="GraphForm" NAME="myform" ACTION="" METHOD="GET">Enter something in the box: <BR>
+                 <input type="text" name="graphName" value="">
                  <INPUT TYPE="number" NAME="num1" VALUE=""><P>
                  <INPUT TYPE="number" NAME="num2" VALUE=""><P>
                  <INPUT TYPE="number" NAME="num3" VALUE=""><P>
@@ -91,6 +104,7 @@
                  <INPUT TYPE="number" NAME="num6" VALUE=""><P>
                  <INPUT TYPE="button" NAME="button" Value="Click" onClick=" makeGraph(this.form)">
                  </FORM>
+
             <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
         </div>
         <div class="page" id="example" data-role="page">

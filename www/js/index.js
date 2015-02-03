@@ -49,5 +49,22 @@ $( '#closeExample' ).click(function() {
   $('#graph').css('display','inline');
   $('#example').css('display','none');
 });
-})
 
+$('#GraphForm').submit(function(){
+    var postData = $(this).serialize();
+$.ajax({
+    type: 'POST',
+    data: postData,
+    url: 'http://http://fyles.worcestercomputing.com/post.php',
+    success: function(data){
+      console.log(data);
+      alert('Your Data was successfully added');
+    },
+    error: function(){
+      console.log(data);
+      alert('There was an error adding your Data');
+    }
+});
+    return false;
+});
+})
