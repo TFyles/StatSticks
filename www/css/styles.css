@@ -63,3 +63,9 @@ a{
 	height:180px;
 	padding-bottom: 20px;
 }
+#phonegapcamera{
+	display: none;
+}
+#saveButton{
+	display: none;
+}

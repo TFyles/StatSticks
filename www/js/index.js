@@ -49,6 +49,16 @@ $( '#closeExample' ).click(function() {
   $('#graph').css('display','inline');
   $('#example').css('display','none');
 });
+$( '#editButton' ).click(function(){
+  $('#editButton').css('display','none');
+  $('#saveButton').css('display','inline');
+  $('#phonegapcamera').css('display', 'inline');
+});
+$( '#saveButton' ).click(function(){
+  $('#saveButton').css('display', 'none');
+  $('#phonegapcamera').css('display','none');
+  $('#editButton').css('display', 'none');
+});
 
 $('#GraphForm').submit(function(){
     var postData = $(this).serialize();
