@@ -85,6 +85,7 @@ $('#graphData').click(function(){
 }, {
   success: function(graphData) {
     // The object was saved successfully.
+    alert("Data Added");
   },
   error: function(graphData, error) {
     // The save failed.
