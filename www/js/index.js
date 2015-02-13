@@ -1,5 +1,28 @@
 Parse.initialize("b5HJVumquxKlU6RVAgomJdGSlhTy7ZEGHOozklAd", "u3wr94pQBGW0Mfkkg2FMOJWI7vgl3tnxS1NE1UfP");
+
 $(document).ready(function (){
+
+  $('#taskList').empty();
+
+  var Task = Parse.Object.extend("Tasks");
+
+   //define a query
+   var query = new Parse.Query(Task);
+
+   //run query
+   query.find({success: querySuccess, error: error});
+
+  function querySuccess(tasks) {
+    for (var i = 0; i < tasks.length; i++) {
+      $('#taskList').append("<li>"+tasks[i].get('Task')+"</li>");
+    }
+  }
+
+  function error(error) {
+    //display an error message
+    alert("Error: " + error.code + " " + error.message);
+  }
+
 $( '#profileNav' ).click(function() {
   $('.page').css('display','none');
   $('#profile').css('display','inline');
@@ -80,31 +103,34 @@ $.ajax({
     return false;
 });
 
-$('#getTasks').click(function(){
-  $('#taskList').empty();
 
-  var Task = Parse.Object.extend("Tasks");
-
-   //define a query
-   var query = new Parse.Query(Task);
-
-   //run query
-   query.find({success: querySuccess, error: error});
-
-   function querySuccess(tasks) {
-  for (var i = 0; i < tasks.length; i++) {
-    $('#taskList').append("<li>"+tasks[i].get('Task')+"</li>");
+$('#addTaskButton').click(function(){
+  var tasktext = $('#addTaskText').val();
+  var newTask = new Task();
+  newTask.set('Task', tasktext);
+  newTask.save(null, {success: saveSuccess, error: error});
+  function saveSuccess(task){
+    console.log("Task saved: " + task.get('Task'));
   }
-
-  }
-
-  function error(error) {
-  //display an error message
-  alert("Error: " + error.code + " " + error.message);
-  }
-  //refresh the listview
-  $('#taskList').listview('refresh');
+  updateList();
 });
+
+$('#delTaskButton').click(function(){
+  var tasktext = $('#DeleteTaskText').val();
+  var tasks = Parse.Object.extend("Tasks");
+  var query = new Parse.Query(tasks);
+  query.get(tasktext , {
+    success: function(myObj) {
+      // The object was retrieved successfully.
+      myObj.destroy({});
+    },
+    error: function(object, error) {
+      // The object was not retrieved successfully.
+      // error is a Parse.Error with an error code and description.
+    }
+  });
+  updateList();
+})
 })
 
 //PhoneGap Camera Plugin 
@@ -131,3 +157,25 @@ function onFail(message) {
       alert('Failed because: ' + message);
 }
 
+function updateList(){
+  $('#taskList').empty();
+
+  var Task = Parse.Object.extend("Tasks");
+
+   //define a query
+   var query = new Parse.Query(Task);
+
+   //run query
+   query.find({success: querySuccess, error: error});
+
+  function querySuccess(tasks) {
+    for (var i = 0; i < tasks.length; i++) {
+      $('#taskList').append("<li>"+tasks[i].get('Task')+"</li>");
+    }
+  }
+
+  function error(error) {
+    //display an error message
+    alert("Error: " + error.code + " " + error.message);
+  }
+};
