@@ -1,27 +1,6 @@
-Parse.initialize("b5HJVumquxKlU6RVAgomJdGSlhTy7ZEGHOozklAd", "u3wr94pQBGW0Mfkkg2FMOJWI7vgl3tnxS1NE1UfP");
+Parse.initialize("imbkzuNYr6DWtmvB9dRU1nHdlWz0D3ET0Rj6MSKo", "ILwfj37tvWIiIdHNaPDEv0eEGdgoKuRMwHfa2vZp");
 
 $(document).ready(function (){
-
-  $('#taskList').empty();
-
-  var Task = Parse.Object.extend("Tasks");
-
-   //define a query
-   var query = new Parse.Query(Task);
-
-   //run query
-   query.find({success: querySuccess, error: error});
-
-  function querySuccess(tasks) {
-    for (var i = 0; i < tasks.length; i++) {
-      $('#taskList').append("<li>"+tasks[i].get('Task')+"</li>");
-    }
-  }
-
-  function error(error) {
-    //display an error message
-    alert("Error: " + error.code + " " + error.message);
-  }
 
 $( '#profileNav' ).click(function() {
   $('.page').css('display','none');
@@ -84,37 +63,36 @@ $( '#saveButton' ).click(function(){
   $('#editButton').css('display', 'none');
 });
 
-$('#GraphForm').submit(function(){
-    var postData = $(this).serialize();
-    console.log("This Worked");
-$.ajax({
-    type: 'POST',
-    data: postData,
-    url: 'post.php',
-    success: function(data){
-      console.log(data);
-      alert('Your Data was successfully added');
-    },
-    error: function(){
-      console.log(data);
-      alert('There was an error adding your Data');
-    }
-});
-    return false;
-});
-
-
-$('#addTaskButton').click(function(){
-  var tasktext = $('#addTaskText').val();
-  var newTask = new Task();
-  newTask.set('Task', tasktext);
-  newTask.save(null, {success: saveSuccess, error: error});
-  function saveSuccess(task){
-    console.log("Task saved: " + task.get('Task'));
+$('#graphData').click(function(){
+  var name = $('#graphName').val();
+  var num1 = $('#num1').val();
+  var num2 = $('#num2').val();
+  var num3 = $('#num3').val();
+  var num4 = $('#num4').val();
+  var num5 = $('#num5').val();
+  var num6 = $('#num6').val();
+  var GraphData = Parse.Object.extend("GraphData");
+  var graphData = new GraphData();
+  alert(num6);
+  graphData.save({
+  Name: name,
+  Point1: num1,
+  Point2: num2,
+  Point3: num3,
+  Point4: num4,
+  Point5: num5,
+  Point6: num6
+}, {
+  success: function(graphData) {
+    // The object was saved successfully.
+  },
+  error: function(graphData, error) {
+    // The save failed.
+    // error is a Parse.Error with an error code and message.
   }
-  updateList();
 });
-
+  
+});
 $('#delTaskButton').click(function(){
   var tasktext = $('#DeleteTaskText').val();
   var tasks = Parse.Object.extend("Tasks");
