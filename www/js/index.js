@@ -102,6 +102,8 @@ $('#getTasks').click(function(){
   //display an error message
   alert("Error: " + error.code + " " + error.message);
   }
+  //refresh the listview
+  $('#taskList').listview('refresh');
 });
 })
 
