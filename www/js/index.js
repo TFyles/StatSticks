@@ -81,6 +81,8 @@ $.ajax({
 });
 
 $('#getTasks').click(function(){
+  $('#taskList').empty();
+
   var Task = Parse.Object.extend("Tasks");
 
    //define a query
@@ -90,13 +92,10 @@ $('#getTasks').click(function(){
    query.find({success: querySuccess, error: error});
 
    function querySuccess(tasks) {
-  //Got a array of tasks. How many?
-  alert("Successfully retrieved " + tasks.length + " tasks.");
-
-  //Print the ‘Task’ attribute of each task using a loop
   for (var i = 0; i < tasks.length; i++) {
-   alert(tasks[i].get('Task'));
+    $('#taskList').append("<li>"+tasks[i].get('Task')+"</li>");
   }
+
   }
 
   function error(error) {
