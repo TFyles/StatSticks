@@ -4,7 +4,7 @@ var version = '1.0';
 var displayName = 'StatsDB';
 var maxSize = 65535;
 
-document.addEventListener("deviceready",onDeviceReady,false);
+
 
 function errorHandler(transaction, error) {
    alert('Error: ' + error.message + ' code: ' + error.code);
@@ -14,13 +14,22 @@ function nullHandler(){};
 
 
 
+
 function onDeviceReady() {
   db = openDatabase(shortName, version, displayName,maxSize);
   db.transaction(function(tx){
 	tx.executeSql( 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL)', [],nullHandler,errorHandler);
-},errorHandler,successCallBack);}
+},errorHandler,successCallBack);
 
-
+}
+function AddValueToDB() {
+   db.transaction(function(transaction) { 
+   transaction.executeSql('INSERT INTO User(FirstName, LastName) VALUES (?,?)',[$('#txFirstName').val(), $('#txLastName').val()],
+   nullHandler,errorHandler);
+   });
+	ListDBValues();
+	return false;
+}
 function ListDBValues() {
 	$('#lbUsers').html('');
 	db.transaction(function(transaction) {
@@ -36,13 +45,3 @@ function ListDBValues() {
  },errorHandler,nullHandler);
  return; 
 }
-
-function AddValueToDB() {
-	db.transaction(function(transaction) {
-   transaction.executeSql('INSERT INTO User(FirstName, LastName) VALUES (?,?)',[$('#txFirstName').val(), $('#txLastName').val()],
-     nullHandler,errorHandler);
-   });
-	ListDBValues();
-	return false;
-}
-
