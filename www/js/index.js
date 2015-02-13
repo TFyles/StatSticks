@@ -1,3 +1,4 @@
+Parse.initialize("<b5HJVumquxKlU6RVAgomJdGSlhTy7ZEGHOozklAd>", "<u3wr94pQBGW0Mfkkg2FMOJWI7vgl3tnxS1NE1UfP>");
 $(document).ready(function (){
 $( '#profileNav' ).click(function() {
   $('.page').css('display','none');
@@ -78,6 +79,29 @@ $.ajax({
 });
     return false;
 });
+
+var Task = Parse.Object.extend("Tasks");
+
+ //define a query
+ var query = new Parse.Query(Task);
+
+ //run query
+ query.find({success: querySuccess, error: error});
+
+ function querySuccess(tasks) {
+//Got a array of tasks. How many?
+alert("Successfully retrieved " + tasks.length + " tasks.");
+
+//Print the ‘Task’ attribute of each task using a loop
+for (var i = 0; i < tasks.length; i++) {
+ alert(tasks[i].get('Task'));
+}
+}
+
+function error(error) {
+//display an error message
+alert("Error: " + error.code + " " + error.message);
+}
 })
 
 //PhoneGap Camera Plugin 
