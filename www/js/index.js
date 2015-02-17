@@ -64,6 +64,10 @@ $( '#saveButton' ).click(function(){
 });
 $('#createGraph').click(function(){
   makeGraph();
+
+});
+$('#saveData').click(function(){
+  addGraphData();
 })
 })
 
@@ -90,26 +94,3 @@ function onPhotoDataSuccess(imageData) {
 function onFail(message) {
       alert('Failed because: ' + message);
 }
-
-function updateList(){
-  $('#taskList').empty();
-
-  var Task = Parse.Object.extend("Tasks");
-
-   //define a query
-   var query = new Parse.Query(Task);
-
-   //run query
-   query.find({success: querySuccess, error: error});
-
-  function querySuccess(tasks) {
-    for (var i = 0; i < tasks.length; i++) {
-      $('#taskList').append("<li>"+tasks[i].get('Task')+"</li>");
-    }
-  }
-
-  function error(error) {
-    //display an error message
-    alert("Error: " + error.code + " " + error.message);
-  }
-};

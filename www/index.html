@@ -8,19 +8,18 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
-        <link rel="stylesheet" type="text/css" href="css/jquery.sidr.light.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.sidr.light.css">      
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="js/parse-1.3.4.min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
         <link rel="stylesheet" href="css/contour.min.css">
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-        <script src="js/lodash.js"></script>
-        <script src="js/contour.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
+        <script src="js/contour.js"></script>
+        <script type="text/javascript" src="js/GraphFunction.js"></script> 
         <script type="text/javascript" src="js/stats.js"></script>
-        <script type="text/javascript" src="js/GraphFunction.js"></script>
-        
+
 
 
         <title>StatSticks</title>
@@ -106,17 +105,25 @@
         </div>
         <div class="page" id="graph" data-role="page">
             <p>Grrr</p>
-            <div class="myFirstChart" style="width:250px; height:300px;"></div>
-                 <FORM>Enter something in the box: <BR>
-                     <INPUT TYPE="number" id="num1" NAME="num1"><P>
-                     <INPUT TYPE="number" id="num2" NAME="num2"><P>
-                     <INPUT TYPE="number" id="num3" NAME="num3"><P>
-                     <INPUT TYPE="number" id="num4" NAME="num4"><P>
-                     <INPUT TYPE="number" id="num5" NAME="num5"><P>
-                     <INPUT TYPE="number" id="num6" NAME="num6"><P>
-                     <INPUT TYPE="submit" id="createGraph" value="Create Graph">
-                 </FORM>
-
+            <div id="Chart"></div>
+                 <FORM>Create a Graph <BR>
+                     <label for="name1"> Graph Name: </label>
+                     <input type="text" id="name1" name="name1"><br>
+                     <label for="num1"> Data Point 1:</label>
+                     <INPUT TYPE="number" id="num1" NAME="num1"><br>
+                     <label for="num2"> Data Point 2:</label>
+                     <INPUT TYPE="number" id="num2" NAME="num2"><br>
+                     <label for="num3"> Data Point 3:</label>
+                     <INPUT TYPE="number" id="num3" NAME="num3"><br>
+                     <label for="num4"> Data Point 4:</label>
+                     <INPUT TYPE="number" id="num4" NAME="num4"><br>
+                     <label for="num5"> Data Point 5:</label>
+                     <INPUT TYPE="number" id="num5" NAME="num5"><br>
+                     <label for="num6"> Data Point 6:</label>
+                     <INPUT TYPE="number" id="num6" NAME="num6"><br>
+                     <INPUT id="createGraph" value="Create Graph"><br>  <!-- The most ridiculous bug ever, this crashes if its a button or type submit for no obvious reason -->
+                     <input id="saveData" value="SaveData"><br>
+                 </FORM><br>
             <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
         </div>
         <div class="page" id="example" data-role="page">
