@@ -62,53 +62,8 @@ $( '#saveButton' ).click(function(){
   $('#phonegapcamera').css('display','none');
   $('#editButton').css('display', 'none');
 });
-
-$('#graphData').click(function(){
-  var name = $('#graphName').val();
-  var num1 = $('#num1').val();
-  var num2 = $('#num2').val();
-  var num3 = $('#num3').val();
-  var num4 = $('#num4').val();
-  var num5 = $('#num5').val();
-  var num6 = $('#num6').val();
-  var GraphData = Parse.Object.extend("GraphData");
-  var graphData = new GraphData();
-  alert(num6);
-  graphData.save({
-  Name: name,
-  Point1: num1,
-  Point2: num2,
-  Point3: num3,
-  Point4: num4,
-  Point5: num5,
-  Point6: num6
-}, {
-  success: function(graphData) {
-    // The object was saved successfully.
-    alert("Data Added");
-  },
-  error: function(graphData, error) {
-    // The save failed.
-    // error is a Parse.Error with an error code and message.
-  }
-});
-  
-});
-$('#delTaskButton').click(function(){
-  var tasktext = $('#DeleteTaskText').val();
-  var tasks = Parse.Object.extend("Tasks");
-  var query = new Parse.Query(tasks);
-  query.get(tasktext , {
-    success: function(myObj) {
-      // The object was retrieved successfully.
-      myObj.destroy({});
-    },
-    error: function(object, error) {
-      // The object was not retrieved successfully.
-      // error is a Parse.Error with an error code and description.
-    }
-  });
-  updateList();
+$('#createGraph').click(function(){
+  makeGraph();
 })
 })
 

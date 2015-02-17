@@ -1,12 +1,13 @@
 var chart;
 var attempts = 0;
-function makeGraph(form){
-                var numero1 = form.num1.value;
-                var numero2 = form.num2.value;
-                var numero3 = form.num3.value;
-                var numero4 = form.num4.value;
-                var numero5 = form.num5.value;
-                var numero6 = form.num6.value;
+function makeGraph(){
+                var numero1 = $('#num1').val();
+                var numero2 = $('#num2').val();
+                var numero3 = $('#num3').val();
+                var numero4 = $('#num4').val();
+                var numero5 = $('#num5').val();
+                var numero6 = $('#num6').val();
+                var data= [numero1, numero2, numero3, numero4, numero5, numero6,];
                 new Contour({
                 el: '.myFirstChart',
                 xAxis: { orient: 'bottom' },
@@ -16,7 +17,7 @@ function makeGraph(form){
                 chart: { animations : { enable: true } } 
                 })
                 .cartesian()
-                .line([numero1, numero2, numero3, numero4, numero5, numero6,])
+                .line(data)
                 .render();
 };
 function randomGraph(){
