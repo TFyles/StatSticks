@@ -19,6 +19,7 @@
     <script src="js/contour.js"></script>
     <script type="text/javascript" src="js/GraphFunction.js"></script> 
     <script type="text/javascript" src="js/stats.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
 
 
 
@@ -40,6 +41,9 @@
                 </li>
                 <li>  
                     <a href="#about" title="" id="aboutNav">About</a>
+                </li>
+                <li>
+                    <a href="" title="" id="logOut">Log Out</a>
                 </li>   
             </ul>
         </div>
@@ -59,7 +63,7 @@
        <input type="text" name="loginName" id="loginName" value=""  />
        <label for="loginPass">Password:</label>
        <input type="password" name="loginPass" id="loginPass" value=""  />
-       <input type="submit">
+       <div id="logInSend" class="snazzyButton"> Log in</div>
        <input type="reset">
        <button id="closeLogIn">Close</button>
    </form>
@@ -68,9 +72,9 @@
        <input type="text" name="signUpName" id="signUpName" value=""  />
        <label for="signUpPass">Password:</label>
        <input type="password" name="signUpPass" id="signUpPass" value=""  />
-       <label for="signUpPassRepeat"> Repeat Password:</label>
-       <input type="password" name="signUpPassRepeat" id="signUpPassRepeat" value=""  />
-       <input type="submit">
+       <label for="signUpPass">Email:</label>
+       <input type="text" name="email" id="email" value=""  />
+       <div id="signUpSend" class="snazzyButton"> Sign Up</div>
        <input type="reset">
        <button id="closeSignUp">Close</button>
    </form>
@@ -80,11 +84,13 @@
     <p id="saveButton">Save</p><br>
     <img style="width:200px;height:200px;" id="image" src="img/ProfilePlaceholder.png" />
     <button id="phonegapcamera" onclick="capturePhoto();">Capture Photo</button> <br>
+    <h2 id="usernameDisplay"></h2>
     <ul data-role="listview" id="graphList"></ul> 
+    <ul data-role="listview" id="statsList"></ul>
 </div>
 <div class="page" id="stats" data-role="page">
     <p>Stats</p>
-    <form name="statsAdd" method="get">
+    <form name="statsAdd" id="statsAdd" method="get">
         <label for="games">Games:</label>
         <input type="number" name="games" id="games" value=""><BR>
         <label for="goals">Goals:</label>
@@ -93,7 +99,9 @@
         <input type="number" name="assists" id="assists" value=""><BR>
         <label for="minutes">Minutes:</label>
         <input type="number" name="minutes" id="minutes" value=""><BR>
-        <input type="submit" onclick="getStats(this.form)">
+        <label for="minutes">Passes:</label>
+        <input type="number" name="passes" id="passes" value=""><BR>
+        <div id="submitStats" class="snazzyButton"> Submit</div>
         <input type="reset">
     </form>
 </div>
@@ -115,8 +123,8 @@
         <input TYPE="number" id="num5" NAME="num5"><br>
         <label for="num6"> Data Point 6:</label>
         <input TYPE="number" id="num6" NAME="num6"><br>
-        <input id="createGraph" value="Create Graph"><br>  <!-- The most ridiculous bug ever, this crashes if its a button or type submit for no obvious reason -->
-        <input id="saveData" value="SaveData"><br>
+        <div id="createGraph" class="snazzyButton">Create Graph</div><br>  <!-- The most ridiculous bug ever, this crashes if its a button or type submit for no obvious reason -->
+        <div id="saveData" class="snazzyButton">Save Graph</div><br>
     </form><br>
     <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
 </div>

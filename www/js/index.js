@@ -65,12 +65,31 @@ $( '#saveButton' ).click(function(){
 $('#createGraph').click(function(){
   makeGraph();
 });
+$('#signUpSend').click(function(){
+  signUp();
+
+});
+$('#logInSend').click(function(){
+  logIn();
+})
 $('#saveData').click(function(){
   addGraphData();
 });
+$('#submitStats').click(function(){
+  addStats();
+});
+$('#logOut').click(function(){
+  logOut();
+});
+})
+
+
+function updateGraphList(){
+  var user = Parse.User.current();
   $('#graphList').empty();
   var GraphData = Parse.Object.extend("GraphData");
   var query = new Parse.Query(GraphData);
+  query.equalTo("User", user);
   query.find({success: querySuccess, error: error});
   function querySuccess(GraphData) {
     for (var i = 0; i < GraphData.length; i++) {
@@ -80,28 +99,73 @@ $('#saveData').click(function(){
   function error(error) {
     alert("Error: " + error.code + " " + error.message);
   }
-})
-
-//PhoneGap Camera Plugin 
-
-var destinationType; //used sets what should be returned (image date OR file path to image for example)
-
-document.addEventListener("deviceready",onDeviceReady,false);
-
-function onDeviceReady() {
-  destinationType=navigator.camera.DestinationType;
 }
 
-function capturePhoto() {
-  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-  destinationType: destinationType.DATA_URL });
-}
-  
-function onPhotoDataSuccess(imageData) {
-  var image = document.getElementById('image');
-  image.src = "data:image/jpeg;base64," + imageData;
+function updateStatsList(){
+  var user = Parse.User.current();
+  $('#statsList').empty();
+  var Stats = Parse.Object.extend("Stats");
+  var query = new Parse.Query(Stats);
+  query.equalTo("User", user);
+  query.find({success: querySuccess, error: error});
+  function querySuccess(Stats) {
+    for (var i = 0; i < Stats.length; i++) {
+      $('#statsList').append("<li>"+Stats[i].get('Games')+"</li>"); 
+      $('#statsList').append("<li>"+Stats[i].get('Goals')+"</li>"); 
+      $('#statsList').append("<li>"+Stats[i].get('Assists')+"</li>"); 
+      $('#statsList').append("<li>"+Stats[i].get('Passes')+"</li>"); 
+      $('#statsList').append("<li>"+Stats[i].get('Minutes')+"</li>"); 
+    }
+  }
+  function error(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
 }
 
-function onFail(message) {
-      alert('Failed because: ' + message);
+function signUp(){
+  var username = $('#signUpName').val();
+  var password = $('#signUpPass').val();
+  var email = $('#email').val();
+  var user = new Parse.User();
+  user.set("username", username);
+  user.set("password", password);
+  user.set("email", email);
+ 
+  user.signUp(null, {
+    success: function(user) {
+      alert("Thank You for signing up")
+      $('#signUpForm').css('display','none');
+      $('#homeButtons').css('display','inline');
+    },
+    error: function(user, error) {
+      // Show the error message somewhere and let the user try again.
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
+}
+
+function logIn(){
+  var username = $('#loginName').val();
+  var password = $('#loginPass').val();
+  Parse.User.logIn(username, password, {
+    success: function(user) {
+      var currentUser = Parse.User.current();
+      $('#logInForm').css('display','none');
+      $('#profile').css('display','inline');
+      $('#simple-menu').css('display','inline');
+      updateGraphList();
+      updateStatsList();
+      addStatsChecker();
+    },
+    error: function(user, error) {
+      alert("Incorrect username or password");
+    }
+  });
+}
+
+function logOut(){
+  Parse.User.logOut();
+  $('.page').css('display','none');
+  $('#home').css('display','inline');
+  $.sidr('close', 'sidr');
 }

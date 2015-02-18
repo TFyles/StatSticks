@@ -51,6 +51,7 @@ function closeGraph(){
         attempts = 0;
 }
 function addGraphData(){
+        var user = Parse.User.current();
         var name = $('#name1').val();
         var num1 = $('#num1').val();
         var num2 = $('#num2').val();
@@ -77,11 +78,13 @@ function addGraphData(){
         graphData.set("Point4", SetNum4);
         graphData.set("Point5", SetNum5);
         graphData.set("Point6", SetNum6);
+        graphData.set("User", user);
          
         graphData.save(null, {
           success: function(graphData) {
             // Execute any logic that should take place after the object is saved.
             alert('Data added');
+            updateGraphList();
           },
           error: function(graphData, error) {
             // Execute any logic that should take place if the save fails.
