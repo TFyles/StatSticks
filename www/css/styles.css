@@ -36,6 +36,9 @@ a{
 #example{
 	display: none;
 }
+#profileGraphView{
+	display: none;
+}
 #logInForm{
 	display: none;
 }

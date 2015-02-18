@@ -81,28 +81,11 @@ $('#submitStats').click(function(){
 $('#logOut').click(function(){
   logOut();
 });
-window.fbAsyncInit = function() {
-    Parse.FacebookUtils.init({ // this line replaces FB.init({
-      appId      : '1619276531633974', // Facebook App ID
-      status     : true,  // check Facebook Login status
-      cookie     : true,  // enable cookies to allow Parse to access the session
-      xfbml      : true,  // initialize Facebook social plugins on the page
-      version    : 'v2.2' // point to the latest Facebook Graph API version
-    });
-
-    $('#facebookLogin').click(function(){
-      facebookLogin();
-    });
-
-  };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+$("#viewGraphButton").click(function(){
+  profileGraphView();
+  $('.page').css('display','none');
+  $('#profileGraphView').css('display','inline');
+})
 })
 
 
@@ -115,7 +98,7 @@ function updateGraphList(){
   query.find({success: querySuccess, error: error});
   function querySuccess(GraphData) {
     for (var i = 0; i < GraphData.length; i++) {
-      $('#graphList').append("<li>"+GraphData[i].get('Name')+"</li>"); 
+      $('#graphList').append("<option value='GraphData[i].get('Name')''>"+GraphData[i].get('Name')+"</option>"); 
     }
   }
   function error(error) {

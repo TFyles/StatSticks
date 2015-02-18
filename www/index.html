@@ -55,9 +55,8 @@
 </header>
 <div class="page" id="home" data-role="page">
     <div id="homeButtons">
-     <button id="logInButton" class="snazzyButton"> Log In  </button>
-     <button id="signUpButton" class="snazzyButton"> Sign Up </button><br>
-     <button id="facebookLogin" class="snazzyButton">Facebook Login</button>
+     <button id="logInButton" class="snazzyButton"> Log In  </button><br>
+     <button id="signUpButton" class="snazzyButton"> Sign Up </button>
  </div>
  <form id="logInForm">
      <label for="loginName">Username:</label>
@@ -86,8 +85,14 @@
     <img style="width:200px;height:200px;" id="image" src="img/ProfilePlaceholder.png" />
     <button id="phonegapcamera" onclick="capturePhoto();">Capture Photo</button> <br>
     <h2 id="usernameDisplay"></h2>
-    <ul data-role="listview" id="graphList"></ul> 
+    <form>
+        <select id="graphList"></select> 
+        <div id="viewGraphButton">View Graph</div>
+    </form>
     <ul data-role="listview" id="statsList"></ul>
+</div>
+<div class="page" id="profileGraphView" data-role="page">
+    <div id="ProfileChart"></div>
 </div>
 <div class="page" id="stats" data-role="page">
     <p>Stats</p>
