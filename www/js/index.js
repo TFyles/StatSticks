@@ -64,11 +64,22 @@ $( '#saveButton' ).click(function(){
 });
 $('#createGraph').click(function(){
   makeGraph();
-
 });
 $('#saveData').click(function(){
   addGraphData();
-})
+});
+  $('#graphList').empty();
+  var GraphData = Parse.Object.extend("GraphData");
+  var query = new Parse.Query(GraphData);
+  query.find({success: querySuccess, error: error});
+  function querySuccess(GraphData) {
+    for (var i = 0; i < GraphData.length; i++) {
+      $('#graphList').append("<li>"+GraphData[i].get('Name')+"</li>"); 
+    }
+  }
+  function error(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
 })
 
 //PhoneGap Camera Plugin 

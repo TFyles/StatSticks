@@ -1,139 +1,133 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" type="text/css" href="css/styles.css" />
-        <link rel="stylesheet" type="text/css" href="css/jquery.sidr.light.css">      
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="js/parse-1.3.4.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
-        <link rel="stylesheet" href="css/contour.min.css">
-        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
-        <script src="js/contour.js"></script>
-        <script type="text/javascript" src="js/GraphFunction.js"></script> 
-        <script type="text/javascript" src="js/stats.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.sidr.light.css">      
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/parse-1.3.4.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
+    <link rel="stylesheet" href="css/contour.min.css">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
+    <script src="js/contour.js"></script>
+    <script type="text/javascript" src="js/GraphFunction.js"></script> 
+    <script type="text/javascript" src="js/stats.js"></script>
 
 
 
-        <title>StatSticks</title>
-    </head>
-    <body>
+    <title>StatSticks</title>
+</head>
+<body>
     <header>
         <a id="simple-menu" href="#sidr"> &#9776; </a>
-    <div id="sidr">
-        <ul>
-            <li>
-                <a href="#profile" title="" id="profileNav"> Profile </a>
-            </li>
-            <li>
-                <a href="#stats" title="" id="statNav">Stats</a>
-            </li>
-            <li>  
-                <a href="#graph" title="" id="graphNav">Graph</a>
-            </li>
-            <li>  
-                <a href="#about" title="" id="aboutNav">About</a>
-            </li>   
-        </ul>
-    </div>
-    <script>
-      $(document).ready(function(){
-        $('#simple-menu').sidr();
-      });
-    </script>
-    </header>
-        <div class="page" id="home" data-role="page">
-            <div id="homeButtons">
-                 <button id="logInButton" class="snazzyButton"> Log In  </button>
-                 <button id="signUpButton" class="snazzyButton"> Sign Up </button>
-             </div>
-             <form id="logInForm">
-                 <label for="loginName">Username:</label>
-                 <input type="text" name="loginName" id="loginName" value=""  />
-                 <label for="loginPass">Password:</label>
-                 <input type="password" name="loginPass" id="loginPass" value=""  />
-                 <input type="submit">
-                 <input type="reset">
-                 <button id="closeLogIn">Close</button>
-             </form>
-            <form id="signUpForm">
-                 <label for="signUpName">Username:</label>
-                 <input type="text" name="signUpName" id="signUpName" value=""  />
-                 <label for="signUpPass">Password:</label>
-                 <input type="password" name="signUpPass" id="signUpPass" value=""  />
-                 <label for="signUpPassRepeat"> Repeat Password:</label>
-                 <input type="password" name="signUpPassRepeat" id="signUpPassRepeat" value=""  />
-                 <input type="submit">
-                 <input type="reset">
-                 <button id="closeSignUp">Close</button>
-             </form>
+        <div id="sidr">
+            <ul>
+                <li>
+                    <a href="#profile" title="" id="profileNav"> Profile </a>
+                </li>
+                <li>
+                    <a href="#stats" title="" id="statNav">Stats</a>
+                </li>
+                <li>  
+                    <a href="#graph" title="" id="graphNav">Graph</a>
+                </li>
+                <li>  
+                    <a href="#about" title="" id="aboutNav">About</a>
+                </li>   
+            </ul>
         </div>
-        <div class="page" id="profile" data-role="page">
-            <p id="editButton">Edit</p><br>
-            <p id="saveButton">Save</p><br>
-            <img style="width:200px;height:200px;" id="image" src="img/ProfilePlaceholder.png" />
-            <button id="phonegapcamera" onclick="capturePhoto();">Capture Photo</button> <br>
-            <input id="txFirstName" type="text" placeholder="FirstName">
-            <input id="txLastName" type="text" placeholder="Last Name">
-            <input type="button" value="Add record" onClick="AddValueToDB()">
-            <input type="button" value="Refresh" onClick="ListDBValues()"> <br>
-            <br>
-            <span style="font-weight:bold;">Currently stored values:</span>
-            <span id="lbUsers"></span>
-        </div>
-        <div class="page" id="stats" data-role="page">
-            <p>Stats</p>
-            <form name="statsAdd" method="get">
-                <label for="games">Games:</label>
-                <input type="number" name="games" id="games" value=""><BR>
-                <label for="goals">Goals:</label>
-                <input type="number" name="goals" id="goals" value=""><BR>
-                <label for="assists"> Assists:</label>
-                <input type="number" name="assists" id="assists" value=""><BR>
-                <label for="minutes">Minutes:</label>
-                <input type="number" name="minutes" id="minutes" value=""><BR>
-                <input type="submit" onclick="getStats(this.form)">
-                <input type="reset">
-            </form>
-        </div>
-        <div class="page" id="graph" data-role="page">
-            <p>Grrr</p>
-            <div id="Chart"></div>
-                 <FORM>Create a Graph <BR>
-                     <label for="name1"> Graph Name: </label>
-                     <input type="text" id="name1" name="name1"><br>
-                     <label for="num1"> Data Point 1:</label>
-                     <INPUT TYPE="number" id="num1" NAME="num1"><br>
-                     <label for="num2"> Data Point 2:</label>
-                     <INPUT TYPE="number" id="num2" NAME="num2"><br>
-                     <label for="num3"> Data Point 3:</label>
-                     <INPUT TYPE="number" id="num3" NAME="num3"><br>
-                     <label for="num4"> Data Point 4:</label>
-                     <INPUT TYPE="number" id="num4" NAME="num4"><br>
-                     <label for="num5"> Data Point 5:</label>
-                     <INPUT TYPE="number" id="num5" NAME="num5"><br>
-                     <label for="num6"> Data Point 6:</label>
-                     <INPUT TYPE="number" id="num6" NAME="num6"><br>
-                     <INPUT id="createGraph" value="Create Graph"><br>  <!-- The most ridiculous bug ever, this crashes if its a button or type submit for no obvious reason -->
-                     <input id="saveData" value="SaveData"><br>
-                 </FORM><br>
-            <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
-        </div>
-        <div class="page" id="example" data-role="page">
-            <div id="exampleChart"></div>
-            <button class="snazzyButton" onclick="randomGraph()">Random Chart</button>
-            <button class="snazzyButton" onclick="updateRandomGraph">Update</button>
-            <button class="snazzyButton" id="closeExample" onclick="closeGraph()">Close</button>
-        </div>
-        <div class="page" id="about" data-role="page">
-        </div>
+        <script>
+          $(document).ready(function(){
+            $('#simple-menu').sidr();
+        });
+      </script>
+  </header>
+  <div class="page" id="home" data-role="page">
+    <div id="homeButtons">
+       <button id="logInButton" class="snazzyButton"> Log In  </button>
+       <button id="signUpButton" class="snazzyButton"> Sign Up </button>
+   </div>
+   <form id="logInForm">
+       <label for="loginName">Username:</label>
+       <input type="text" name="loginName" id="loginName" value=""  />
+       <label for="loginPass">Password:</label>
+       <input type="password" name="loginPass" id="loginPass" value=""  />
+       <input type="submit">
+       <input type="reset">
+       <button id="closeLogIn">Close</button>
+   </form>
+   <form id="signUpForm">
+       <label for="signUpName">Username:</label>
+       <input type="text" name="signUpName" id="signUpName" value=""  />
+       <label for="signUpPass">Password:</label>
+       <input type="password" name="signUpPass" id="signUpPass" value=""  />
+       <label for="signUpPassRepeat"> Repeat Password:</label>
+       <input type="password" name="signUpPassRepeat" id="signUpPassRepeat" value=""  />
+       <input type="submit">
+       <input type="reset">
+       <button id="closeSignUp">Close</button>
+   </form>
+</div>
+<div class="page" id="profile" data-role="page">
+    <p id="editButton">Edit</p><br>
+    <p id="saveButton">Save</p><br>
+    <img style="width:200px;height:200px;" id="image" src="img/ProfilePlaceholder.png" />
+    <button id="phonegapcamera" onclick="capturePhoto();">Capture Photo</button> <br>
+    <ul data-role="listview" id="graphList"></ul> 
+</div>
+<div class="page" id="stats" data-role="page">
+    <p>Stats</p>
+    <form name="statsAdd" method="get">
+        <label for="games">Games:</label>
+        <input type="number" name="games" id="games" value=""><BR>
+        <label for="goals">Goals:</label>
+        <input type="number" name="goals" id="goals" value=""><BR>
+        <label for="assists"> Assists:</label>
+        <input type="number" name="assists" id="assists" value=""><BR>
+        <label for="minutes">Minutes:</label>
+        <input type="number" name="minutes" id="minutes" value=""><BR>
+        <input type="submit" onclick="getStats(this.form)">
+        <input type="reset">
+    </form>
+</div>
+<div class="page" id="graph" data-role="page">
+    <p>Grrr</p>
+    <div id="Chart"></div>
+    <form>Create a Graph <BR>
+        <label for="name1"> Graph Name: </label>
+        <input type="text" id="name1" name="name1"><br>
+        <label for="num1"> Data Point 1:</label>
+        <input TYPE="number" id="num1" NAME="num1"><br>
+        <label for="num2"> Data Point 2:</label>
+        <input TYPE="number" id="num2" NAME="num2"><br>
+        <label for="num3"> Data Point 3:</label>
+        <input TYPE="number" id="num3" NAME="num3"><br>
+        <label for="num4"> Data Point 4:</label>
+        <input TYPE="number" id="num4" NAME="num4"><br>
+        <label for="num5"> Data Point 5:</label>
+        <input TYPE="number" id="num5" NAME="num5"><br>
+        <label for="num6"> Data Point 6:</label>
+        <input TYPE="number" id="num6" NAME="num6"><br>
+        <input id="createGraph" value="Create Graph"><br>  <!-- The most ridiculous bug ever, this crashes if its a button or type submit for no obvious reason -->
+        <input id="saveData" value="SaveData"><br>
+    </form><br>
+    <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
+</div>
+<div class="page" id="example" data-role="page">
+    <div id="exampleChart"></div>
+    <button class="snazzyButton" onclick="randomGraph()">Random Chart</button>
+    <button class="snazzyButton" onclick="updateRandomGraph">Update</button>
+    <button class="snazzyButton" id="closeExample" onclick="closeGraph()">Close</button>
+</div>
+<div class="page" id="about" data-role="page">
+</div>
 
-    </body>
+</body>
 </html>
