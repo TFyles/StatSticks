@@ -26,58 +26,59 @@
     <title>StatSticks</title>
 </head>
 <body>
-    <header>
-        <a id="simple-menu" href="#sidr"> &#9776; </a>
-        <div id="sidr">
-            <ul>
-                <li>
-                    <a href="#profile" title="" id="profileNav"> Profile </a>
-                </li>
-                <li>
-                    <a href="#stats" title="" id="statNav">Stats</a>
-                </li>
-                <li>  
-                    <a href="#graph" title="" id="graphNav">Graph</a>
-                </li>
-                <li>  
-                    <a href="#about" title="" id="aboutNav">About</a>
-                </li>
-                <li>
-                    <a href="" title="" id="logOut">Log Out</a>
-                </li>   
-            </ul>
-        </div>
-        <script>
-          $(document).ready(function(){
-            $('#simple-menu').sidr();
-        });
-      </script>
-  </header>
-  <div class="page" id="home" data-role="page">
+<header>
+    <a id="simple-menu" href="#sidr"> &#9776; </a>
+    <div id="sidr">
+        <ul>
+            <li>
+                <a href="#profile" title="" id="profileNav"> Profile </a>
+            </li>
+            <li>
+                <a href="#stats" title="" id="statNav">Stats</a>
+            </li>
+            <li>  
+                <a href="#graph" title="" id="graphNav">Graph</a>
+            </li>
+            <li>  
+                <a href="#about" title="" id="aboutNav">About</a>
+            </li>
+            <li>
+                <a href="" title="" id="logOut">Log Out</a>
+            </li>   
+        </ul>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('#simple-menu').sidr();
+    });
+  </script>
+</header>
+<div class="page" id="home" data-role="page">
     <div id="homeButtons">
-       <button id="logInButton" class="snazzyButton"> Log In  </button>
-       <button id="signUpButton" class="snazzyButton"> Sign Up </button>
-   </div>
-   <form id="logInForm">
-       <label for="loginName">Username:</label>
-       <input type="text" name="loginName" id="loginName" value=""  />
-       <label for="loginPass">Password:</label>
-       <input type="password" name="loginPass" id="loginPass" value=""  />
-       <div id="logInSend" class="snazzyButton"> Log in</div>
-       <input type="reset">
-       <button id="closeLogIn">Close</button>
-   </form>
-   <form id="signUpForm">
-       <label for="signUpName">Username:</label>
-       <input type="text" name="signUpName" id="signUpName" value=""  />
-       <label for="signUpPass">Password:</label>
-       <input type="password" name="signUpPass" id="signUpPass" value=""  />
-       <label for="signUpPass">Email:</label>
-       <input type="text" name="email" id="email" value=""  />
-       <div id="signUpSend" class="snazzyButton"> Sign Up</div>
-       <input type="reset">
-       <button id="closeSignUp">Close</button>
-   </form>
+     <button id="logInButton" class="snazzyButton"> Log In  </button>
+     <button id="signUpButton" class="snazzyButton"> Sign Up </button><br>
+     <button id="facebookLogin" class="snazzyButton">Facebook Login</button>
+ </div>
+ <form id="logInForm">
+     <label for="loginName">Username:</label>
+     <input type="text" name="loginName" id="loginName" value=""  />
+     <label for="loginPass">Password:</label>
+     <input type="password" name="loginPass" id="loginPass" value=""  />
+     <div id="logInSend" class="snazzyButton"> Log in</div>
+     <input type="reset">
+     <button id="closeLogIn">Close</button>
+ </form>
+ <form id="signUpForm">
+     <label for="signUpName">Username:</label>
+     <input type="text" name="signUpName" id="signUpName" value=""  />
+     <label for="signUpPass">Password:</label>
+     <input type="password" name="signUpPass" id="signUpPass" value=""  />
+     <label for="signUpPass">Email:</label>
+     <input type="text" name="email" id="email" value=""  />
+     <div id="signUpSend" class="snazzyButton"> Sign Up</div>
+     <input type="reset">
+     <button id="closeSignUp">Close</button>
+ </form>
 </div>
 <div class="page" id="profile" data-role="page">
     <p id="editButton">Edit</p><br>

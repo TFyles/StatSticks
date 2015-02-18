@@ -81,6 +81,28 @@ $('#submitStats').click(function(){
 $('#logOut').click(function(){
   logOut();
 });
+window.fbAsyncInit = function() {
+    Parse.FacebookUtils.init({ // this line replaces FB.init({
+      appId      : '1619276531633974', // Facebook App ID
+      status     : true,  // check Facebook Login status
+      cookie     : true,  // enable cookies to allow Parse to access the session
+      xfbml      : true,  // initialize Facebook social plugins on the page
+      version    : 'v2.2' // point to the latest Facebook Graph API version
+    });
+
+    $('#facebookLogin').click(function(){
+      facebookLogin();
+    });
+
+  };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 })
 
 
@@ -168,4 +190,19 @@ function logOut(){
   $('.page').css('display','none');
   $('#home').css('display','inline');
   $.sidr('close', 'sidr');
+}
+
+function facebookLogin(){
+  Parse.FacebookUtils.logIn(null, {
+  success: function(user) {
+    if (!user.existed()) {
+      alert("User signed up and logged in through Facebook!");
+    } else {
+      alert("User logged in through Facebook!");
+    }
+  },
+  error: function(user, error) {
+    alert("User cancelled the Facebook login or did not fully authorize.");
+  }
+});
 }
