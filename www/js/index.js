@@ -156,7 +156,8 @@ function logIn(){
       var currentUser = Parse.User.current();
       $('#logInForm').css('display','none');
       $('#profile').css('display','inline');
-      $('#jqeader').css('display','inline');
+      $('#simple-menu').css('display','inline');
+      
       updateGraphList();
       updateStatsList();
       addStatsChecker();

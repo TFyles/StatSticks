@@ -2,13 +2,11 @@ header{
 	height: 65px;
 	background-color: #69D2E7;
 }
-#jqHeader{
-	display: none;
-}
 a{
 	text-decoration: none;
 }
 #simple-menu{
+	display: none;
 	position: absolute;
 	top: 5px;
 	left: 10px;
