@@ -56,17 +56,17 @@
 </header>
 <div class="page" id="home" data-role="page">
     <div id="homeButtons">
-     <button id="logInButton" class="snazzyButton"> Log In  </button>
-     <button id="signUpButton" class="snazzyButton"> Sign Up </button>
+     <button id="logInButton" class="waves-effect waves-light btn light-blue lighten-2 "> Log In  </button>
+     <button id="signUpButton" class="waves-effect waves-light btn light-blue lighten-2 "> Sign Up </button>
  </div>
  <form id="logInForm">
      <label for="loginName">Username:</label><br>
      <input type="text" name="loginName" id="loginName" value=""  /><br>
      <label for="loginPass">Password:</label><br>
      <input type="password" name="loginPass" id="loginPass" value=""  /><br>
-     <div id="logInSend" class="snazzyButton"> Log in</div>
-     <input type="reset">
-     <button id="closeLogIn">Close</button>
+     <div id="logInSend" class="waves-effect waves-light btn light-blue lighten-2"> Log in</div>
+     <input type="reset" class="waves-effect waves-light btn light-blue lighten-2">
+     <button id="closeLogIn" class="waves-effect waves-light btn light-blue lighten-2" >Close</button>
  </form>
  <form id="signUpForm">
      <label for="signUpName">Username:</label><br>
@@ -75,16 +75,16 @@
      <input type="password" name="signUpPass" id="signUpPass" value=""  /><br>
      <label for="signUpPass">Email:</label><br>
      <input type="text" name="email" id="email" value=""  /><br>
-     <div id="signUpSend" class="snazzyButton"> Sign Up</div>
-     <input type="reset">
-     <button id="closeSignUp">Close</button>
+     <div id="signUpSend" class="waves-effect waves-light btn light-blue lighten-2 "> Sign Up</div>
+     <input type="reset" class="waves-effect waves-light btn light-blue lighten-2">
+     <button id="closeSignUp" class="waves-effect waves-light btn light-blue lighten-2">Close</button>
  </form>
 </div>
 <div class="page" id="profile" data-role="page">
     <p id="editButton">Edit</p><br>
     <p id="saveButton">Save</p><br>
     <img style="width:200px;height:200px;" id="image" src="img/ProfilePlaceholder.png" />
-    <button id="phonegapcamera" onclick="capturePhoto();">Capture Photo</button> <br>
+    <button id="phonegapcamera" class="waves-effect waves-light btn light-blue lighten-2" onclick="capturePhoto();">Capture Photo</button> <br>
     <h2 id="usernameDisplay"></h2>
     <form>
         <select id="graphList"></select> 
@@ -108,8 +108,8 @@
         <input type="number" name="minutes" id="minutes" value=""><BR>
         <label for="minutes">Passes:</label>
         <input type="number" name="passes" id="passes" value=""><BR>
-        <div id="submitStats" class="snazzyButton"> Submit</div>
-        <input type="reset">
+        <div id="submitStats" class="waves-effect waves-light btn light-blue lighten-2"> Submit</div>
+        <input type="reset" class="waves-effect waves-light btn light-blue lighten-2">
     </form>
 </div>
 <div class="page" id="graph" data-role="page">
@@ -130,16 +130,16 @@
         <input TYPE="number" id="num5" NAME="num5"><br>
         <label for="num6"> Data Point 6:</label>
         <input TYPE="number" id="num6" NAME="num6"><br>
-        <div id="createGraph" class="snazzyButton">Create Graph</div><br>  <!-- The most ridiculous bug ever, this crashes if its a button or type submit for no obvious reason -->
-        <div id="saveData" class="snazzyButton">Save Graph</div><br>
+        <div id="createGraph" class="waves-effect waves-light btn light-blue lighten-2">Create Graph</div><br>  <!-- The is a ridiculous bug , this crashes if its a button or type submit for no obvious reason -->
+        <div id="saveData" class="waves-effect waves-light btn light-blue lighten-2">Save Graph</div><br>
     </form><br>
-    <a href="#example" class="snazzyButton" id="exampleButton">View an example</a>
+    <a href="#example" class="waves-effect waves-light btn light-blue lighten-2" id="exampleButton">View an example</a>
 </div>
 <div class="page" id="example" data-role="page">
     <div id="exampleChart"></div>
-    <button class="snazzyButton" onclick="randomGraph()">Random Chart</button>
-    <button class="snazzyButton" onclick="updateRandomGraph">Update</button>
-    <button class="snazzyButton" id="closeExample" onclick="closeGraph()">Close</button>
+    <button class="waves-effect waves-light btn light-blue lighten-2" onclick="randomGraph()">Random Chart</button>
+    <button class="waves-effect waves-light btn light-blue lighten-2" onclick="updateRandomGraph">Update</button>
+    <button class="waves-effect waves-light btn light-blue lighten-2" id="closeExample" onclick="closeGraph()">Close</button>
 </div>
 <div class="page" id="about" data-role="page">
 </div>
