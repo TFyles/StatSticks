@@ -1,5 +1,4 @@
 Parse.initialize("imbkzuNYr6DWtmvB9dRU1nHdlWz0D3ET0Rj6MSKo", "ILwfj37tvWIiIdHNaPDEv0eEGdgoKuRMwHfa2vZp");
-
 $(document).ready(function (){
 
 $( '#profileNav' ).click(function() {
@@ -157,7 +156,7 @@ function logIn(){
       var currentUser = Parse.User.current();
       $('#logInForm').css('display','none');
       $('#profile').css('display','inline');
-      $('#simple-menu').css('display','inline');
+      $('#jqeader').css('display','inline');
       updateGraphList();
       updateStatsList();
       addStatsChecker();
