@@ -1,6 +1,5 @@
 header{
 	height: 65px;
-	background-color: #69D2E7;
 }
 a{
 	text-decoration: none;
@@ -69,6 +68,9 @@ a{
 	padding-bottom: 20px;
 }
 #phonegapcamera{
+	display: none;
+}
+#fileupload{
 	display: none;
 }
 #saveButton{
