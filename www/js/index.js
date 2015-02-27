@@ -169,7 +169,7 @@ function logIn() {
             $('#logInForm').css('display', 'none');
             $('#profile').css('display', 'inline');
             $('#simple-menu').css('display', 'inline');
-            $('body').css('background-color','#eceff1');
+           // $('body').css('background-color','#eceff1');
 
             updateGraphList();
             updateStatsList();
