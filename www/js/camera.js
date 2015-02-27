@@ -1,5 +1,7 @@
+Parse.initialize("imbkzuNYr6DWtmvB9dRU1nHdlWz0D3ET0Rj6MSKo", "ILwfj37tvWIiIdHNaPDEv0eEGdgoKuRMwHfa2vZp");
 var destinationType; //used sets what should be returned (image date OR file path to image for example)
 var imgdata;
+var stringimg;
 document.addEventListener("deviceready",onDeviceReady,false);
 
 function onDeviceReady() {
@@ -65,10 +67,9 @@ $(function() {
         processData: false,
         contentType: false,
         success: function(data) {
-          console.log("File available at: " + data.url);
           imgdata = data.url;
-          imgdata =  imgdata.toString();
-          console.log(imgdata + "Is the Link");
+          stringimg = JSON.stringify(imgdata)
+          console.log(stringimg + "Is the Link");
           sendProfilePicture();
         },
         error: function(data) {
@@ -83,12 +84,12 @@ $(function() {
 
 function sendProfilePicture(){
   var User = Parse.User.current();
-  var User = Parse.Object.extend("User");
-  var query = new Parse.Query(User);
+  var Name = Parse.Object.extend("User");
+  var query = new Parse.Query(Name);
   query.equalTo("User", User);
-  query.first({
-    success: function(User) {
-      User.set("ProfilePicture", imgdata);
+  query.find({
+    success: function(Name) {
+      Name.set("ProfilePicture", "Banter");
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
