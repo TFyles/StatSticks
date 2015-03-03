@@ -174,6 +174,7 @@ function logIn() {
             updateGraphList();
             updateStatsList();
             addStatsChecker();
+            displayProfilePicture();
         },
         error: function(user, error) {
             alert("Incorrect username or password");

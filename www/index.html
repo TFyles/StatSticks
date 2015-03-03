@@ -99,8 +99,10 @@
         <br>
         <p id="saveButton">Save</p>
         <br>
-        <img style="width:200px;height:200px;" id="image" src="img/ProfilePlaceholder.png" />
-        <button id="phonegapcamera" class="waves-effect waves-light btn light-blue lighten-2" onclick="capturePhoto();">Capture Photo</button>
+        <div id="profilePic"></div>
+        <!-- <button id="phonegapcamera" class="waves-effect waves-light btn light-blue lighten-2" onclick="capturePhoto();">Capture Photo</button> -->
+        <input type="file" accept="image/*;capture=camera">
+        <button id="uploadViaCamera" class="waves-effect waves-light btn light-blue lighten-2"> Upload to server</button>
         <br>
         <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
             <fieldset>
