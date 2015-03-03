@@ -102,7 +102,6 @@
         <div id="profilePic"></div>
         <!-- <button id="phonegapcamera" class="waves-effect waves-light btn light-blue lighten-2" onclick="capturePhoto();">Capture Photo</button> -->
         <input type="file" accept="image/*;capture=camera">
-        <button id="uploadViaCamera" class="waves-effect waves-light btn light-blue lighten-2"> Upload to server</button>
         <br>
         <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
             <fieldset>
@@ -110,9 +109,12 @@
                 <input id="uploadbutton" type="button" value="Upload to Parse" />
             </fieldset>
         </form>
-        <h2 id="usernameDisplay"></h2>
+        <h2 id="usernameDisplay">...</h2>
+        <div id="graphUpdate" class="waves-effect waves-light btn light-blue lighten-2">Update</div>
         <form>
-            <select id="graphList"></select>
+            <select id="graphList">
+                <option>Option1</option>
+            </select>
             <div id="viewGraphButton">View Graph</div>
         </form>
         <ul data-role="listview" id="statsList"></ul>

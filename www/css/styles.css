@@ -76,3 +76,6 @@ a{
 #saveButton{
 	display: none;
 }
+#graphList{
+	display: inline;
+}

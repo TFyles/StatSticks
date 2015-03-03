@@ -36,6 +36,11 @@ $(function() {
         // Our file var now holds the selected file
         file = files[0];
     });
+    // Set an event listener on the Choose File field.
+    var input = document.querySelector('input[type=file]');
+    input.onchange = function () {
+      file = input.files[0];
+   };
 
     // This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
     $('#uploadbutton').click(function() {
@@ -108,43 +113,3 @@ function displayProfilePicture() {
 }
 
 
-$(function() {
-    var file;
-
-    // Set an event listener on the Choose File field.
-    var input = document.querySelector('input[type=file]');
-    input.onchange = function () {
-      file = input.files[0];
-  };
-
-    // This function is called when the user clicks on Upload to Parse. It will create the REST API request to upload this image to Parse.
-    $('#uploadViaCamera').click(function() {
-        var serverUrl = 'https://api.parse.com/1/files/' + file.name;
-
-        $.ajax({
-            type: "POST",
-            beforeSend: function(request) {
-                request.setRequestHeader("X-Parse-Application-Id", 'imbkzuNYr6DWtmvB9dRU1nHdlWz0D3ET0Rj6MSKo');
-                request.setRequestHeader("X-Parse-REST-API-Key", 'zzDouYL47sibqxV4tLlTTyMJKbCR5MnKIfb5KQIR');
-                request.setRequestHeader("Content-Type", file.type);
-            },
-            url: serverUrl,
-            data: file,
-            processData: false,
-            contentType: false,
-            success: function(data) {
-                console.log("File available at: " + data.url);
-                alert("File available at: " + data.url);
-                //imgdata = data.url;
-                //imgdata = JSON.stringify(imgdata);
-                //console.log(imgdata + "Is the Link");
-                //sendProfilePicture();
-            },
-            error: function(data) {
-                var obj = jQuery.parseJSON(data);
-                alert(obj.error);
-            }
-        });
-    });
-
-});

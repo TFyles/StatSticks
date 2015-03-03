@@ -66,6 +66,9 @@ $(document).ready(function() {
     $('#createGraph').click(function() {
         makeGraph();
     });
+    $('#graphUpdate').click(function(){
+        updateGraphList();
+    })
     $('#signUpSend').click(function() {
         signUp();
 
@@ -87,7 +90,6 @@ $(document).ready(function() {
         $('.page').css('display', 'none');
         $('#profileGraphView').css('display', 'inline');
     })
-})
 
 
 function updateGraphList() {
@@ -169,8 +171,6 @@ function logIn() {
             $('#logInForm').css('display', 'none');
             $('#profile').css('display', 'inline');
             $('#simple-menu').css('display', 'inline');
-            $('body').css('background-color','#eceff1');
-
             updateGraphList();
             updateStatsList();
             addStatsChecker();
@@ -203,3 +203,5 @@ function facebookLogin() {
         }
     });
 }
+
+});
