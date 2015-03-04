@@ -103,7 +103,7 @@ function displayProfilePicture() {
 
     function querySuccess(profilepic) {
         for (var i = 0; i < profilepic.length; i++) {
-          $('#profilePic').html("<img style='width:200px;height:200px;' id='image' src=" + profilepic[i].get('Link') + ">");
+          $('#profilePic').html("<img id='image' src=" + profilepic[i].get('Link') + ">");
         }
     }
 

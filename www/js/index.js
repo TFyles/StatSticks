@@ -66,7 +66,7 @@ $(document).ready(function() {
     $('#createGraph').click(function() {
         makeGraph();
     });
-    $('#graphUpdate').click(function(){
+    $('#graphUpdate').click(function() {
         updateGraphList();
     })
     $('#signUpSend').click(function() {
@@ -92,116 +92,139 @@ $(document).ready(function() {
     })
 
 
-function updateGraphList() {
-    var user = Parse.User.current();
-    $('#graphList').empty();
-    var GraphData = Parse.Object.extend("GraphData");
-    var query = new Parse.Query(GraphData);
-    query.equalTo("User", user);
-    query.find({
-        success: querySuccess,
-        error: error
-    });
+    function updateGraphList() {
+        var user = Parse.User.current();
+        $('#graphList').empty();
+        var GraphData = Parse.Object.extend("GraphData");
+        var query = new Parse.Query(GraphData);
+        query.equalTo("User", user);
+        query.find({
+            success: querySuccess,
+            error: error
+        });
 
-    function querySuccess(GraphData) {
-        for (var i = 0; i < GraphData.length; i++) {
-            $('#graphList').append("<option value='GraphData[i].get('Name')''>" + GraphData[i].get('Name') + "</option>");
+        function querySuccess(GraphData) {
+            for (var i = 0; i < GraphData.length; i++) {
+                $('#graphList').append("<option value='GraphData[i].get('Name')''>" + GraphData[i].get('Name') + "</option>");
+            }
         }
-    }
 
-    function error(error) {
-        alert("Error: " + error.code + " " + error.message);
-    }
-}
-
-function updateStatsList() {
-    var user = Parse.User.current();
-    $('#statsList').empty();
-    var Stats = Parse.Object.extend("Stats");
-    var query = new Parse.Query(Stats);
-    query.equalTo("User", user);
-    query.find({
-        success: querySuccess,
-        error: error
-    });
-
-    function querySuccess(Stats) {
-        for (var i = 0; i < Stats.length; i++) {
-            $('#statsList').append("<li>" + Stats[i].get('Games') + "</li>");
-            $('#statsList').append("<li>" + Stats[i].get('Goals') + "</li>");
-            $('#statsList').append("<li>" + Stats[i].get('Assists') + "</li>");
-            $('#statsList').append("<li>" + Stats[i].get('Passes') + "</li>");
-            $('#statsList').append("<li>" + Stats[i].get('Minutes') + "</li>");
-        }
-    }
-
-    function error(error) {
-        alert("Error: " + error.code + " " + error.message);
-    }
-}
-
-function signUp() {
-    var username = $('#signUpName').val();
-    var password = $('#signUpPass').val();
-    var email = $('#email').val();
-    var user = new Parse.User();
-    user.set("username", username);
-    user.set("password", password);
-    user.set("email", email);
-
-    user.signUp(null, {
-        success: function(user) {
-            alert("Thank You for signing up")
-            $('#signUpForm').css('display', 'none');
-            $('#homeButtons').css('display', 'inline');
-        },
-        error: function(user, error) {
-            // Show the error message somewhere and let the user try again.
+        function error(error) {
             alert("Error: " + error.code + " " + error.message);
         }
-    });
-}
+    }
 
-function logIn() {
-    var username = $('#loginName').val();
-    var password = $('#loginPass').val();
-    Parse.User.logIn(username, password, {
-        success: function(user) {
-            var currentUser = Parse.User.current();
-            $('#logInForm').css('display', 'none');
-            $('#profile').css('display', 'inline');
-            $('#simple-menu').css('display', 'inline');
-            updateGraphList();
-            updateStatsList();
-            addStatsChecker();
-            displayProfilePicture();
-        },
-        error: function(user, error) {
-            alert("Incorrect username or password");
-        }
-    });
-}
+    function updateStatsList() {
+        var user = Parse.User.current();
+        $('#statsList').empty();
+        var Stats = Parse.Object.extend("Stats");
+        var query = new Parse.Query(Stats);
+        query.equalTo("User", user);
+        query.find({
+            success: querySuccess,
+            error: error
+        });
 
-function logOut() {
-    Parse.User.logOut();
-    $('.page').css('display', 'none');
-    $('#home').css('display', 'inline');
-    $.sidr('close', 'sidr');
-}
-
-function facebookLogin() {
-    Parse.FacebookUtils.logIn(null, {
-        success: function(user) {
-            if (!user.existed()) {
-                alert("User signed up and logged in through Facebook!");
-            } else {
-                alert("User logged in through Facebook!");
+        function querySuccess(Stats) {
+            for (var i = 0; i < Stats.length; i++) {
+                $('#statsList').append("<li>" + Stats[i].get('Games') + "</li>");
+                $('#statsList').append("<li>" + Stats[i].get('Goals') + "</li>");
+                $('#statsList').append("<li>" + Stats[i].get('Assists') + "</li>");
+                $('#statsList').append("<li>" + Stats[i].get('Passes') + "</li>");
+                $('#statsList').append("<li>" + Stats[i].get('Minutes') + "</li>");
             }
-        },
-        error: function(user, error) {
-            alert("User cancelled the Facebook login or did not fully authorize.");
         }
-    });
-}
+
+        function error(error) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+    }
+
+    function signUp() {
+        var username = $('#signUpName').val();
+        var password = $('#signUpPass').val();
+        var email = $('#email').val();
+        var user = new Parse.User();
+        user.set("username", username);
+        user.set("password", password);
+        user.set("email", email);
+
+        user.signUp(null, {
+            success: function(user) {
+                alert("Thank You for signing up")
+                $('#signUpForm').css('display', 'none');
+                $('#homeButtons').css('display', 'inline');
+            },
+            error: function(user, error) {
+                // Show the error message somewhere and let the user try again.
+                alert("Error: " + error.code + " " + error.message);
+            }
+        });
+    }
+
+    function logIn() {
+        var username = $('#loginName').val();
+        var password = $('#loginPass').val();
+        Parse.User.logIn(username, password, {
+            success: function(user) {
+                var currentUser = Parse.User.current();
+                $('#usernameDisplay').html("<p>" + username+ "</p>");
+                updateGraphList();
+                updateStatsList();
+                addStatsChecker();
+                displayProfilePicture();
+                $('#logInForm').css('display', 'none');
+                $('#profile').css('display', 'inline');
+                $('#simple-menu').css('display', 'inline');
+            },
+            error: function(user, error) {
+                alert("Incorrect username or password");
+            }
+        });
+    }
+
+    function logOut() {
+        Parse.User.logOut();
+        $('.page').css('display', 'none');
+        $('#home').css('display', 'inline');
+        $.sidr('close', 'sidr');
+    }
+
+    function facebookLogin() {
+        Parse.FacebookUtils.logIn(null, {
+            success: function(user) {
+                if (!user.existed()) {
+                    alert("User signed up and logged in through Facebook!");
+                } else {
+                    alert("User logged in through Facebook!");
+                }
+            },
+            error: function(user, error) {
+                alert("User cancelled the Facebook login or did not fully authorize.");
+            }
+        });
+    }
 
 });
+
+function getUsername() {
+    var user = Parse.User.current();
+    var Profile = Parse.Object.extend("User");
+    var query = new Parse.Query(Profile);
+    query.equalTo("User", user);
+    query.find({
+        success: querySuccess,
+        error: error
+    });
+
+    function querySuccess(Profile) {
+        for (var i = 0; i < Profile.length; i++) {
+            $('#usernameDisplay').html("<p>" + Profile[i].get('username') + "</p>") ;
+            console.log(Profile[i].get('username'));
+        }
+    }
+
+    function error(error) {
+        alert("Error: " + error.code + " " + error.message);
+    }
+}
