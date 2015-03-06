@@ -39,6 +39,14 @@ $(document).ready(function() {
         $('#signUpForm').css('display', 'inline');
         $('#homeButtons').css('display', 'none');
     });
+    $('#offlineButton').click(function(){
+        $('#home').css('display','none');
+        $('#offline').css('display','inline');
+    });
+    $('#offlineBack').click(function(){
+        $('#home').css('display','inline');
+        $('#offline').css('display','none');
+    });
     $('#closeSignUp').click(function() {
         $('#signUpForm').css('display', 'none');
         $('#homeButtons').css('display', 'inline');
@@ -64,6 +72,9 @@ $(document).ready(function() {
         $('#editButton').css('display', 'none');
     });
     $('#createGraph').click(function() {
+        makeGraph();
+    });
+    $('#createGraphOffline').click(function() {
         makeGraph();
     });
     $('#graphUpdate').click(function() {

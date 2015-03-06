@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <header class="app-topbar"  class="light-blue lighten-2">
+    <header class="light-blue lighten-2">
         <a id="simple-menu" href="#sidr"> &#9776; </a>
         <div id="sidr">
             <ul>
@@ -57,27 +57,29 @@
         });
         </script>
     </header>
-    <div class="page"  id="home" data-role="page" data-page="home">
+    <div class="page" id="home" data-role="page" data-page="home">
         <div id="homeButtons">
             <button id="logInButton" class="waves-effect waves-light btn light-blue lighten-2 "> Log In </button>
             <button id="signUpButton" class="waves-effect waves-light btn light-blue lighten-2 "> Sign Up </button>
+            <br>
+            <button id="offlineButton" class="waves-effect waves-light btn light-blue lighten-2">Offline Mode</button>
         </div>
         <div data-page="signUp">
-        <form id="logInForm">
-            <div class="input-field">
-                <label for="loginName">Username:</label>
-                <br>
-                <input type="text" name="loginName" id="loginName" class="validate" value="" />
-            </div>
-            <div class="input-field">
-                <label for="loginPass">Password:</label>
-                <br>
-                <input type="password" name="loginPass" id="loginPass" class="validate" value="" />
-            </div>
-            <div id="logInSend" class="waves-effect waves-light btn light-blue lighten-2"> Log in</div>
-            <input type="reset" class="waves-effect waves-light btn light-blue lighten-2">
-            <button id="closeLogIn" class="waves-effect waves-light btn light-blue lighten-2">Close</button>
-        </form>
+            <form id="logInForm">
+                <div class="input-field">
+                    <label for="loginName">Username:</label>
+                    <br>
+                    <input type="text" name="loginName" id="loginName" class="validate" value="" />
+                </div>
+                <div class="input-field">
+                    <label for="loginPass">Password:</label>
+                    <br>
+                    <input type="password" name="loginPass" id="loginPass" class="validate" value="" />
+                </div>
+                <div id="logInSend" class="waves-effect waves-light btn light-blue lighten-2"> Log in</div>
+                <input type="reset" class="waves-effect waves-light btn light-blue lighten-2">
+                <button id="closeLogIn" class="waves-effect waves-light btn light-blue lighten-2">Close</button>
+            </form>
         </div>
         <form id="signUpForm">
             <label for="signUpName">Username:</label>
@@ -108,10 +110,14 @@
         <form id="fileupload" name="fileupload" enctype="multipart/form-data" method="post">
             <h5>Update Profile Picture</h5>
             <fieldset>
-                <label> Upload from Camera:</label><br>
-                <input type="file" accept="image/*;capture=camera"><br>
-                <label> Upload from Files:</label><br>
-                <input type="file" name="fileselect" id="fileselect"></input><br>
+                <label> Upload from Camera:</label>
+                <br>
+                <input type="file" accept="image/*;capture=camera">
+                <br>
+                <label> Upload from Files:</label>
+                <br>
+                <input type="file" name="fileselect" id="fileselect"></input>
+                <br>
                 <input id="uploadbutton" type="button" value="Upload to Parse" />
             </fieldset>
         </form>
@@ -149,9 +155,32 @@
             <input type="reset" class="waves-effect waves-light btn light-blue lighten-2">
         </form>
     </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------->
+
     <div class="page" id="graph" data-role="page">
+        <form> Graph Options
+            <select id="graphTypeList">
+                <option>Line</option>
+                <option>Bar</option>
+                <option>Scatter</option>
+                <option>Pie</option>
+            </select>
+            <label for="points">Points:</label>
+            <select id="pointsNumberList">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select><br>
+        </form>
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------->
+    <div class="page" id="lineGraph" data-role="page">
         <div id="Chart"></div>
-        <form>Create a Graph
+        <form>Create a Line Graph
             <BR>
             <label for="name1"> Graph Name: </label>
             <input type="text" id="name1" name="name1">
@@ -183,6 +212,25 @@
         <br>
         <a href="#example" class="waves-effect waves-light btn light-blue lighten-2" id="exampleButton">View an example</a>
     </div>
+    <!------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="page" id="pieChart" data-role="page">
+        <form>Create a Graph
+            
+        </form>
+    </div>
+    <!------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="page" id="barChart" data-role="page">
+        <form>Create a Graph
+            
+        </form>
+    </div>
+    <!------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="page" id="scatterChart" data-role="page">
+        <form>Create a Graph
+            
+        </form>
+    </div>
+    <!------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="page" id="example" data-role="page">
         <div id="exampleChart"></div>
         <button class="waves-effect waves-light btn light-blue lighten-2" onclick="randomGraph()">Random Chart</button>
@@ -190,6 +238,10 @@
         <button class="waves-effect waves-light btn light-blue lighten-2" id="closeExample" onclick="closeGraph()">Close</button>
     </div>
     <div class="page" id="about" data-role="page">
+    </div>
+
+    <div class="page" id="offline" data-role="page">
+        <button id="offlineBack" class="waves-effect waves-light btn light-blue lighten-2">Back</button>
     </div>
 
 </body>
