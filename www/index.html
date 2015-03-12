@@ -15,7 +15,7 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/jquery.sidr.min.js"></script>
     <link rel="stylesheet" href="css/contour.min.css">
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/d3.v3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
     <script src="js/contour.js"></script>
     <script type="text/javascript" src="js/GraphFunction.js"></script>
@@ -174,59 +174,57 @@
                 <option>5</option>
                 <option>6</option>
             </select><br>
+            <div id="selectChart" class="waves-effect waves-light btn light-blue lighten-2"> Submit</div>
         </form>
     </div>
 
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------->
     <div class="page" id="lineGraph" data-role="page">
         <div id="Chart"></div>
-        <form>Create a Line Graph
+        <form id="lineGraphForm">Create a Line Graph
             <BR>
             <label for="name1"> Graph Name: </label>
-            <input type="text" id="name1" name="name1">
-            <br>
-            <label for="num1"> Data Point 1:</label>
-            <input TYPE="number" id="num1" NAME="num1">
-            <br>
-            <label for="num2"> Data Point 2:</label>
-            <input TYPE="number" id="num2" NAME="num2">
-            <br>
-            <label for="num3"> Data Point 3:</label>
-            <input TYPE="number" id="num3" NAME="num3">
-            <br>
-            <label for="num4"> Data Point 4:</label>
-            <input TYPE="number" id="num4" NAME="num4">
-            <br>
-            <label for="num5"> Data Point 5:</label>
-            <input TYPE="number" id="num5" NAME="num5">
-            <br>
-            <label for="num6"> Data Point 6:</label>
-            <input TYPE="number" id="num6" NAME="num6">
-            <br>
-            <div id="createGraph" class="waves-effect waves-light btn light-blue lighten-2">Create Graph</div>
-            <br>
-            <!-- The is a ridiculous bug , this crashes if its a button or type submit for no obvious reason -->
-            <div id="saveData" class="waves-effect waves-light btn light-blue lighten-2">Save Graph</div>
-            <br>
+            <input type="text" id="name1" name="name1"><br>
+            <label for="XAxisTitle"> X Axis Title: </label>
+            <input type="text" id="xAxisTitle" name="xAxisTitle"><br>
         </form>
+        <br>
+        <div id="createGraph" class="waves-effect waves-light btn light-blue lighten-2">Create Graph</div>
+        <br>
+        <!-- The is a ridiculous bug , this crashes if its a button or type submit for no obvious reason -->
+        <div id="saveData" class="waves-effect waves-light btn light-blue lighten-2">Save Graph</div>
         <br>
         <a href="#example" class="waves-effect waves-light btn light-blue lighten-2" id="exampleButton">View an example</a>
     </div>
     <!------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="page" id="pieChart" data-role="page">
-        <form>Create a Graph
-            
+    <div id="pieChart"></div><br>
+        <form>Create a PieChart
+            <BR>
+            <label for="Piename"> Graph Name: </label>
+            <input type="text" id="Piename" name="name1"><br>
+            <div id="createPieChart" class="waves-effect waves-light btn light-blue lighten-2">Create Chart</div>
+        <br>
+        <!-- The is a ridiculous bug , this crashes if its a button or type submit for no obvious reason -->
+        <div id="saveData" class="waves-effect waves-light btn light-blue lighten-2">Save Chart</div>
         </form>
     </div>
     <!------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="page" id="barChart" data-role="page">
-        <form>Create a Graph
-            
+        <div id="barChart"></div><br>
+        <form>Create a BarChart
+            <BR>
+            <label for="Barname"> Graph Name: </label>
+            <input type="text" id="Barname" name="name1"><br>
+            <div id="createBarChart" class="waves-effect waves-light btn light-blue lighten-2">Create Chart</div>
+        <br>
+        <!-- The is a ridiculous bug , this crashes if its a button or type submit for no obvious reason -->
+        <div id="saveData" class="waves-effect waves-light btn light-blue lighten-2">Save Chart</div>
         </form>
     </div>
     <!------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="page" id="scatterChart" data-role="page">
-        <form>Create a Graph
+        <form>Create a ScatterChart
             
         </form>
     </div>

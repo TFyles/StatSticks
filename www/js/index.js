@@ -71,8 +71,18 @@ $(document).ready(function() {
         $('#fileupload').css('display', 'none');
         $('#editButton').css('display', 'none');
     });
+    $('#selectChart').click(function(){
+        console.log("clicked");
+        graphTypeSelect();
+    })
     $('#createGraph').click(function() {
         makeGraph();
+    });
+    $('#createPieChart').click(function(){
+        makePieChart();
+    })
+    $('#createBarChart').click(function() {
+        makeBarChart();
     });
     $('#createGraphOffline').click(function() {
         makeGraph();

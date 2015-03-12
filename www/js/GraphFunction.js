@@ -1,17 +1,26 @@
 var chart;
 var attempts = 0;
 function makeGraph(){
-        var num1 = $('#num1').val();
-        var num2 = $('#num2').val();
-        var num3 = $('#num3').val();
-        var num4 = $('#num4').val();
-        var num5 = $('#num5').val();
-        var num6 = $('#num6').val();
+        var num1 = $('#dataPoint1').val();
+        var num2 = $('#dataPoint2').val();
+        var num3 = $('#dataPoint3').val();
+        var num4 = $('#dataPoint4').val();
+        var num5 = $('#dataPoint5').val();
+        var num6 = $('#dataPoint6').val();
+        var xAxis1 = $('#xAxis1').val();
+        var xAxis2 = $('#xAxis2').val();
+        var xAxis3 = $('#xAxis3').val();
+        var xAxis4 = $('#xAxis4').val();
+        var xAxis5 = $('#xAxis5').val();
+        var xAxis6 = $('#xAxis6').val();
+        var xAxisTitle = $('#xAxisTitle').val();
+
+
         chart = new Contour({
                 el: '#Chart',
                 xAxis: { orient: 'bottom' },
-                xAxis: { categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'] },
-                xAxis: { title: 'Week' },
+                xAxis: { categories: [xAxis1, xAxis2, xAxis3, xAxis4, xAxis5, xAxis6] },
+                xAxis: { title: xAxisTitle },
                 yAxis: { max: 100 },
                 chart: { animations : { enable: true } } 
         })
@@ -128,4 +137,63 @@ function profileGraphView(){
             alert("Error: " + error.code + " " + error.message);
         }
 
+}
+
+function graphTypeSelect(){
+    var graphType = $('#graphTypeList').val();
+    var dataPoints = $('#pointsNumberList').val();
+
+    if (graphType == "Line"){
+        $('#graph').css('display','none');
+        $('#lineGraph').css('display','inline');
+        for (var i = 1; i <= dataPoints; i++) {
+            $('#lineGraphForm').append("<label> x Axis Label" + i +"</label><br>");
+            $('#lineGraphForm').append("<input type='text' id='xAxis" + i +"' value=''><br>");
+             $('#lineGraphForm').append("<label> Point" + i + "</label><br>");
+             $('#lineGraphForm').append("<input type='number' id='dataPoint" + i +"' value=''><br>");
+            }
+    } else if (graphType == "Bar"){
+        $('#graph').css('display','none');
+        $('#barChart').css('display','inline');
+        for (var i = 1; i <= dataPoints; i++) {
+            console.log(i);
+        }
+    } else if (graphType == "Scatter") {
+        $('#graph').css('display','none');
+        $('#scatterChart').css('display','inline');
+        for (var i = 1; i <= dataPoints; i++) {
+            console.log(i);
+        }
+    } else if (graphType == "Pie"){
+        $('#graph').css('display','none');
+        $('#pieChart').css('display','inline');
+        for (var i = 1; i <= dataPoints; i++) {
+            console.log(i);
+        }
+    } else {
+        console.log("Error not a valid graph type");
+    };
+
+}
+
+function makePieChart(){
+var data = [1,2,3,4];
+
+    new Contour({
+        el: '#pieChart',
+        pie: {
+          // pie-specific configuration options
+        }
+    })
+    .pie(data)
+    .render();
+}
+
+function makeBarChart(){
+    new Contour({
+        el: '#barChart'})
+      .cartesian()
+      .horizontal()
+      .bar([1,2,3,4])
+      .render();
 }
